@@ -8,8 +8,11 @@ SRCS_DIR	= ./srcs/
 SRCS		= main.c \
 			  init.c \
 			  dining.c \
+			  monitoring.c \
+			  printf.c \
 			  time.c \
-			  utils.c
+			  utils.c \
+			  error.c
 OBJS		= $(addprefix $(SRCS_DIR), $(SRCS:.c=.o))
 
 all		: $(NAME)

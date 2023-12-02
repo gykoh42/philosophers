@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   error.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gykoh <gykoh@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/19 21:28:39 by gykoh             #+#    #+#             */
-/*   Updated: 2023/12/02 20:18:51 by gykoh            ###   ########.fr       */
+/*   Created: 2023/12/02 20:13:34 by gykoh             #+#    #+#             */
+/*   Updated: 2023/12/02 20:20:27 by gykoh            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-int	main(int argc, char **argv)
+void	ft_error_exit(char *str)
 {
-	t_info	info;
-	t_philo	*philo;
+	printf("%s\n", str);
+	exit(1);
+}
 
-	ft_check_arg(argc);
-	ft_init_info(&info, argc, argv);
-	ft_init_philo(&info, &philo);
-	ft_dining(&info, philo);
-	return (0);
+void	ft_check_arg(int argc)
+{
+	if (!(argc == 5 || argc == 6))
+		ft_error_exit("error: invalid argument");
 }
