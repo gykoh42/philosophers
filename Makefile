@@ -22,15 +22,15 @@ all		: $(NAME)
 
 $(NAME)	: $(OBJS)
 	@$(CC) $(CFLAGS) -o $(NAME) $(OBJS)
-	@echo $(GREEN) "⚡︎	[ philo ]	Ready to run philo" $(RESET)
+	@echo $(GREEN) "⚡︎[ philo ] Ready to run philo" $(RESET)
 
 clean	:
 	@$(RM) $(OBJS)
-	@echo $(GREEN) "⚡︎	[ philo ]	Removed Object files" $(RESET)
+	@echo $(PURPLE) "⚡︎[ philo ] Removed Object files" $(RESET)
 
 fclean	: clean
 	@$(RM) $(NAME)
-	@echo $(GREEN) "⚡︎	[ philo ]	Removed philo" $(RESET)
+	@echo $(YELLOW) "⚡︎[ philo ] Removed philo" $(RESET)
 
 re		:
 	@$(MAKE) fclean

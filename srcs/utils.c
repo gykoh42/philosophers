@@ -6,7 +6,7 @@
 /*   By: gykoh <gykoh@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/25 15:27:07 by gykoh             #+#    #+#             */
-/*   Updated: 2023/12/02 20:50:37 by gykoh            ###   ########.fr       */
+/*   Updated: 2023/12/03 17:18:46 by gykoh            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ int	ft_atoi(char *str)
 		}
 		else
 			ft_error_exit("error: invalid argument");
-		if (rtn > 2147483647)
+		if (rtn > 2147483647 || rtn == 0)
 			ft_error_exit("error: invalid argument");
 	}
 	return (rtn);
