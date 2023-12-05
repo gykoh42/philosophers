@@ -6,7 +6,7 @@
 /*   By: gykoh <gykoh@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/02 02:13:22 by gykoh             #+#    #+#             */
-/*   Updated: 2023/12/05 15:18:10 by gykoh            ###   ########.fr       */
+/*   Updated: 2023/12/05 17:28:13 by gykoh            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	ft_pass_time(long long operation_time, t_info *info)
 	long long	cur_time;
 
 	start_time = ft_get_time();
-	while (check_finish(info))
+	while (ft_check_finish(info))
 	{
 		cur_time = ft_get_time();
 		if ((cur_time - start_time) >= operation_time)

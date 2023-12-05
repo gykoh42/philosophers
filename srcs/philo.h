@@ -6,7 +6,7 @@
 /*   By: gykoh <gykoh@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/19 21:20:22 by gykoh             #+#    #+#             */
-/*   Updated: 2023/12/05 17:11:05 by gykoh            ###   ########.fr       */
+/*   Updated: 2023/12/05 17:28:27 by gykoh            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ void		ft_pass_time(long long wait_time, t_info *info);
 
 /* utils.c */
 int			ft_check_arg(int argc);
-int			check_finish(t_info *info);
+int			ft_check_finish(t_info *info);
 void		finish_flag_on(t_info *info);
 void		ft_free_thread(t_info *info, t_philo *philo);
 int			ft_atoi(char *str);

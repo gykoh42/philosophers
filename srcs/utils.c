@@ -6,7 +6,7 @@
 /*   By: gykoh <gykoh@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/25 15:27:07 by gykoh             #+#    #+#             */
-/*   Updated: 2023/12/05 17:05:46 by gykoh            ###   ########.fr       */
+/*   Updated: 2023/12/05 17:28:13 by gykoh            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	ft_check_arg(int argc)
 	return (0);
 }
 
-int	check_finish(t_info *info)
+int	ft_check_finish(t_info *info)
 {
 	pthread_mutex_lock(&(info->finish));
 	if (info->finish_flag == 1)

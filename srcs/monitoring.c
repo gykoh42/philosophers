@@ -6,7 +6,7 @@
 /*   By: gykoh <gykoh@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/02 20:47:46 by gykoh             #+#    #+#             */
-/*   Updated: 2023/12/05 13:09:53 by gykoh            ###   ########.fr       */
+/*   Updated: 2023/12/05 17:28:14 by gykoh            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	ft_monitoring(t_info *info, t_philo *philo)
 {
 	int	i;
 
-	while (check_finish(info))
+	while (ft_check_finish(info))
 	{
 		i = 0;
 		while (i < info->num_of_philo)

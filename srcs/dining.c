@@ -6,7 +6,7 @@
 /*   By: gykoh <gykoh@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/02 01:53:25 by gykoh             #+#    #+#             */
-/*   Updated: 2023/12/05 16:10:19 by gykoh            ###   ########.fr       */
+/*   Updated: 2023/12/05 17:28:13 by gykoh            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ void	*ft_thread(void *argv)
 	philo = (t_philo *)argv;
 	info = philo->info;
 	ft_philo_set(info, philo);
-	while (check_finish(info))
+	while (ft_check_finish(info))
 	{
 		ft_eating(info, philo);
 		if (info->must_eat_cnt == philo->eat_cnt)
