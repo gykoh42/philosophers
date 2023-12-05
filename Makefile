@@ -14,6 +14,10 @@ SRCS		= main.c \
 			  utils.c
 OBJS		= $(addprefix $(SRCS_DIR), $(SRCS:.c=.o))
 
+ifneq "$(findstring debug, $(MAKECMDGOALS))" ""
+	CFLAGS += -fsanitize=thread -pthread -g3
+endif
+
 all		: $(NAME)
 
 %.o		: %.c
@@ -35,7 +39,10 @@ re		:
 	@$(MAKE) fclean
 	@$(MAKE) all
 
-.PHONY	: all clean fclean re
+debug : fclean re
+	@echo $(CYAN) "⚡︎[ philo ] Debug mode" $(RESET)
+
+.PHONY	: all clean fclean re debug
 
 RESET	= "\x1b[0m"
 GREY	= "\x1b[30m"
