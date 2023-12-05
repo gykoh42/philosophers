@@ -11,8 +11,7 @@ SRCS		= main.c \
 			  monitoring.c \
 			  printf.c \
 			  time.c \
-			  utils.c \
-			  error.c
+			  utils.c
 OBJS		= $(addprefix $(SRCS_DIR), $(SRCS:.c=.o))
 
 all		: $(NAME)

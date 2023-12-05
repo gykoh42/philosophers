@@ -6,11 +6,18 @@
 /*   By: gykoh <gykoh@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/25 15:27:07 by gykoh             #+#    #+#             */
-/*   Updated: 2023/12/05 15:05:28 by gykoh            ###   ########.fr       */
+/*   Updated: 2023/12/05 16:27:39 by gykoh            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
+
+int	ft_check_arg(int argc)
+{
+	if (!(argc == 5 || argc == 6))
+		return (1);
+	return (0);
+}
 
 int	check_finish(t_info *info)
 {
