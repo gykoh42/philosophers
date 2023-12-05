@@ -6,7 +6,7 @@
 /*   By: gykoh <gykoh@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/19 21:20:22 by gykoh             #+#    #+#             */
-/*   Updated: 2023/12/02 20:47:33 by gykoh            ###   ########.fr       */
+/*   Updated: 2023/12/05 13:09:54 by gykoh            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,12 +35,12 @@ typedef struct s_info
 	int				must_eat_cnt;
 	pthread_mutex_t	finish;
 	int				finish_flag;
-	pthread_mutex_t	finished_philo;
-	int				finished_philo_cnt;
+	pthread_mutex_t	finished_philo_mutex;
+	int				finished_philo;
 	long long		start_time;
 	pthread_mutex_t	*fork;
 	pthread_mutex_t	print;
-	int				no_print;
+	int				print_flag;
 
 }	t_info;
 
@@ -52,7 +52,7 @@ typedef struct s_philo
 	int				left;
 	int				right;
 	int				eat_cnt;
-	pthread_mutex_t	p_eat_time;
+	pthread_mutex_t	last_eat_time_mutex;
 	long long		last_eat_time;
 }	t_philo;
 

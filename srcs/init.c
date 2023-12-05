@@ -6,7 +6,7 @@
 /*   By: gykoh <gykoh@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/25 16:25:55 by gykoh             #+#    #+#             */
-/*   Updated: 2023/12/03 17:15:19 by gykoh            ###   ########.fr       */
+/*   Updated: 2023/12/05 13:09:53 by gykoh            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ void	ft_init_philo(t_info *info, t_philo **philo)
 		(*philo)[i].idx = i;
 		(*philo)[i].left = i;
 		(*philo)[i].right = (i + 1) % info->num_of_philo;
-		if (pthread_mutex_init(&((*philo)[i].p_eat_time), NULL))
+		if (pthread_mutex_init(&((*philo)[i].last_eat_time_mutex), NULL))
 			ft_error_exit("error: mutex initialization failed");
 		i++;
 	}

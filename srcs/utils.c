@@ -6,7 +6,7 @@
 /*   By: gykoh <gykoh@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/25 15:27:07 by gykoh             #+#    #+#             */
-/*   Updated: 2023/12/03 17:18:46 by gykoh            ###   ########.fr       */
+/*   Updated: 2023/12/05 13:09:53 by gykoh            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,11 +39,11 @@ void	ft_free_thread(t_info *info, t_philo *philo)
 	while (i < info->num_of_philo)
 		pthread_join(philo[i++].thread, NULL);
 	pthread_mutex_destroy(&(info->finish));
-	pthread_mutex_destroy(&(info->finished_philo));
+	pthread_mutex_destroy(&(info->finished_philo_mutex));
 	i = 0;
 	while (i < info->num_of_philo)
 	{
-		pthread_mutex_destroy(&(philo[i].p_eat_time));
+		pthread_mutex_destroy(&(philo[i].last_eat_time_mutex));
 		pthread_mutex_destroy(&(info->fork[i]));
 		i++;
 	}

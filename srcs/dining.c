@@ -6,7 +6,7 @@
 /*   By: gykoh <gykoh@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/02 01:53:25 by gykoh             #+#    #+#             */
-/*   Updated: 2023/12/02 20:54:47 by gykoh            ###   ########.fr       */
+/*   Updated: 2023/12/05 13:11:25 by gykoh            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,10 @@ void	ft_eating(t_info *info, t_philo *philo)
 		pthread_mutex_lock(&(info->fork[philo->left]));
 		ft_philo_printf(info, philo->idx, FORK);
 		ft_philo_printf(info, philo->idx, EAT);
-		pthread_mutex_lock(&(philo->p_eat_time));
-		philo->last_eat_time = ft_get_time();
-		pthread_mutex_unlock(&(philo->p_eat_time));
 		ft_pass_time((long long)info->time_to_eat, info);
+		pthread_mutex_lock(&(philo->last_eat_time_mutex));
+		philo->last_eat_time = ft_get_time();
+		pthread_mutex_unlock(&(philo->last_eat_time_mutex));
 		philo->eat_cnt++;
 		pthread_mutex_unlock(&(info->fork[philo->left]));
 	}
@@ -33,9 +33,9 @@ void	ft_eating(t_info *info, t_philo *philo)
 
 void	ft_philo_set(t_info *info, t_philo *philo)
 {
-	pthread_mutex_lock(&(philo->p_eat_time));
+	pthread_mutex_lock(&(philo->last_eat_time_mutex));
 	philo->last_eat_time = ft_get_time();
-	pthread_mutex_unlock(&(philo->p_eat_time));
+	pthread_mutex_unlock(&(philo->last_eat_time_mutex));
 	if (philo->idx % 2 == 1)
 	{
 		if (info->time_to_die < info->time_to_eat * 2)
@@ -58,9 +58,9 @@ void	*ft_thread(void *argv)
 		ft_eating(info, philo);
 		if (info->must_eat_cnt == philo->eat_cnt)
 		{
-			pthread_mutex_lock(&(info->finished_philo));
-			info->finished_philo_cnt++;
-			pthread_mutex_unlock(&(info->finished_philo));
+			pthread_mutex_lock(&(info->finished_philo_mutex));
+			info->finished_philo++;
+			pthread_mutex_unlock(&(info->finished_philo_mutex));
 			break ;
 		}
 		ft_philo_printf(info, philo->idx, SLEEP);
