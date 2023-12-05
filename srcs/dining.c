@@ -6,7 +6,7 @@
 /*   By: gykoh <gykoh@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/02 01:53:25 by gykoh             #+#    #+#             */
-/*   Updated: 2023/12/05 13:11:25 by gykoh            ###   ########.fr       */
+/*   Updated: 2023/12/05 16:10:19 by gykoh            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ void	*ft_thread(void *argv)
 	return (0);
 }
 
-void	ft_dining(t_info *info, t_philo *philo)
+int	ft_dining(t_info *info, t_philo *philo)
 {
 	int	i;
 
@@ -82,11 +82,12 @@ void	ft_dining(t_info *info, t_philo *philo)
 		if (pthread_create(&(philo[i].thread), NULL, ft_thread, &(philo[i])))
 		{
 			ft_free_thread(info, philo);
-			ft_error_exit("error: thread creation failed");
+			return (1);
 		}
 		i++;
 	}
 	usleep(800);
 	ft_monitoring(info, philo);
 	ft_free_thread(info, philo);
+	return (0);
 }

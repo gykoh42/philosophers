@@ -6,7 +6,7 @@
 /*   By: gykoh <gykoh@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/25 15:27:07 by gykoh             #+#    #+#             */
-/*   Updated: 2023/12/05 13:09:53 by gykoh            ###   ########.fr       */
+/*   Updated: 2023/12/05 15:05:28 by gykoh            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ int	ft_atoi(char *str)
 	i = 0;
 	rtn = 0;
 	if (!str || !*str)
-		ft_error_exit("error: invalid argument");
+		return (-1);
 	if (str[i] == '+')
 		i++;
 	while (str[i] != '\0')
@@ -71,9 +71,9 @@ int	ft_atoi(char *str)
 			i++;
 		}
 		else
-			ft_error_exit("error: invalid argument");
+			return (-1);
 		if (rtn > 2147483647 || rtn == 0)
-			ft_error_exit("error: invalid argument");
+			return (-1);
 	}
 	return (rtn);
 }

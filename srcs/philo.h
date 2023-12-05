@@ -6,7 +6,7 @@
 /*   By: gykoh <gykoh@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/19 21:20:22 by gykoh             #+#    #+#             */
-/*   Updated: 2023/12/05 13:09:54 by gykoh            ###   ########.fr       */
+/*   Updated: 2023/12/05 15:58:05 by gykoh            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,14 +57,15 @@ typedef struct s_philo
 }	t_philo;
 
 /* init.c */
-void		ft_init_info(t_info *info, int argc, char **argv);
-void		ft_init_philo(t_info *info, t_philo **philo);
+int			ft_init_info(t_info *info, int argc, char **argv);
+int			ft_init_philo(t_info *info, t_philo **philo);
+int			ft_init_argv(t_info *info, int argc, char **argv);
 
 /* dining.c */
 void		ft_eating(t_info *info, t_philo *philo);
 void		ft_philo_set(t_info *info, t_philo *philo);
 void		*ft_thread(void *argv);
-void		ft_dining(t_info *info, t_philo *philo);
+int			ft_dining(t_info *info, t_philo *philo);
 
 /* monitoring.c */
 int			ft_check_last_eat_time(t_info *info, t_philo *philo);
@@ -85,7 +86,7 @@ void		ft_free_thread(t_info *info, t_philo *philo);
 int			ft_atoi(char *str);
 
 /* error.c */
-void		ft_error_exit(char *str);
-void		ft_check_arg(int argc);
+int			ft_error(char *str);
+int			ft_check_arg(int argc);
 
 #endif

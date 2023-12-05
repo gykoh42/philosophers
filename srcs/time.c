@@ -6,7 +6,7 @@
 /*   By: gykoh <gykoh@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/02 02:13:22 by gykoh             #+#    #+#             */
-/*   Updated: 2023/12/02 20:58:33 by gykoh            ###   ########.fr       */
+/*   Updated: 2023/12/05 15:18:10 by gykoh            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,7 @@ long long	ft_get_time(void)
 {
 	struct timeval	time;
 
-	if (gettimeofday(&time, NULL) == -1)
-		ft_error_exit("error: gettimeofday failed");
+	gettimeofday(&time, NULL);
 	return ((time.tv_sec * 1000) + (time.tv_usec / 1000));
 }
 
