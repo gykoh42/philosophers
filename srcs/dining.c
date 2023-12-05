@@ -6,7 +6,7 @@
 /*   By: gykoh <gykoh@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/02 01:53:25 by gykoh             #+#    #+#             */
-/*   Updated: 2023/12/05 17:28:13 by gykoh            ###   ########.fr       */
+/*   Updated: 2023/12/05 18:39:26 by gykoh            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,10 @@ void	ft_eating(t_info *info, t_philo *philo)
 		pthread_mutex_lock(&(info->fork[philo->left]));
 		ft_philo_printf(info, philo->idx, FORK);
 		ft_philo_printf(info, philo->idx, EAT);
-		ft_pass_time((long long)info->time_to_eat, info);
 		pthread_mutex_lock(&(philo->last_eat_time_mutex));
 		philo->last_eat_time = ft_get_time();
 		pthread_mutex_unlock(&(philo->last_eat_time_mutex));
+		ft_pass_time((long long)info->time_to_eat, info);
 		philo->eat_cnt++;
 		pthread_mutex_unlock(&(info->fork[philo->left]));
 	}
