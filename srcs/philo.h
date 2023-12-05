@@ -6,7 +6,7 @@
 /*   By: gykoh <gykoh@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/19 21:20:22 by gykoh             #+#    #+#             */
-/*   Updated: 2023/12/05 16:27:19 by gykoh            ###   ########.fr       */
+/*   Updated: 2023/12/05 17:11:05 by gykoh            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ typedef struct s_info
 	long long		start_time;
 	pthread_mutex_t	*fork;
 	pthread_mutex_t	print;
-	int				print_flag;
+	int				dead_flag;
 
 }	t_info;
 

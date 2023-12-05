@@ -6,7 +6,7 @@
 /*   By: gykoh <gykoh@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/02 20:12:39 by gykoh             #+#    #+#             */
-/*   Updated: 2023/12/05 13:09:35 by gykoh            ###   ########.fr       */
+/*   Updated: 2023/12/05 17:11:04 by gykoh            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,12 @@ void	ft_philo_dead_printf(t_info *info, int idx)
 
 	pthread_mutex_lock(&(info->print));
 	cur_time = ft_get_time();
-	if (info->print_flag == 1)
+	if (info->dead_flag == 1)
 	{
 		pthread_mutex_unlock((&info->print));
 		return ;
 	}
-	info->print_flag = 1;
+	info->dead_flag = 1;
 	printf("%lld %d %s\n", (cur_time - info->start_time), idx + 1, DIE);
 	pthread_mutex_unlock((&info->print));
 }
@@ -34,7 +34,7 @@ void	ft_philo_printf(t_info *info, int idx, char *str)
 
 	pthread_mutex_lock(&(info->print));
 	cur_time = ft_get_time();
-	if (info->print_flag == 1)
+	if (info->dead_flag == 1)
 	{
 		pthread_mutex_unlock((&info->print));
 		return ;
